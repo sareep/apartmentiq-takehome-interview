@@ -8,22 +8,22 @@ export interface Property {
   id: number;
   name: string;
   address: string;
-  yearBuilt: number;
-  websiteUrl: string;
+  year_built: number;
+  website_url: string;
 }
 
 export default function App() {
-  const [properties, setProperties] = useState<Property[]>([])
-  
+  const [properties, setProperties] = useState<Property[]>([]);
+
   useEffect(() => {
-    axios.get(PROPERTIES_ENDPOINT)
-      .then(({data}) => setProperties(data as Property[]))
-  }, [])
-  
-  
+    axios
+      .get(PROPERTIES_ENDPOINT)
+      .then(({ data }) => setProperties(data as Property[]));
+  }, []);
+
   return (
     <>
-      <h1>Properties</h1>
+      <h1 className="text-2xl">Properties</h1>
       <PropertiesTable properties={properties} />
     </>
   );
