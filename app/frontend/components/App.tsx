@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import PropertiesTable from "./PropertiesTable";
 import PropertyDetails from "./PropertyDetails";
 
-const PROPERTIES_ENDPOINT = "/api/v1/properties";
+export const PROPERTIES_ENDPOINT = "/api/v1/properties";
 
 export interface Property {
   id: number;
@@ -35,7 +35,7 @@ export default function App() {
         </div>
         <div className="ml-2 w-full">
           <PropertyDetails
-            property={properties.find((p) => p.id == selectedPropertyId)}
+            propertyId={selectedPropertyId}
             onClose={() => setSelectedPropertyId(undefined)}
           />
         </div>
