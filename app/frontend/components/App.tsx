@@ -1,14 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import PropertiesTable from "./PropertiesTable";
 
 const PROPERTIES_ENDPOINT = "/api/v1/properties"
 
-interface Property {
-  id: number,
-  name: string,
-  address: string,
-  yearBuilt: number,
-  websiteUrl: string
+export interface Property {
+  id: number;
+  name: string;
+  address: string;
+  yearBuilt: number;
+  websiteUrl: string;
 }
 
 export default function App() {
@@ -22,10 +23,8 @@ export default function App() {
   
   return (
     <>
-      <h1>
-        Properties
-      </h1>
-      {properties.map(p => <div key={p.id}>{p.name}, {p.address}, {p.yearBuilt}, {p.websiteUrl}</div>)}
+      <h1>Properties</h1>
+      <PropertiesTable properties={properties} />
     </>
   );
 }
