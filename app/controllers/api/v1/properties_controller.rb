@@ -6,5 +6,6 @@ class Api::V1::PropertiesController < ApplicationController
 
   def show
     @property = Property.find(params[:id])
+    render json: @property
   end
 end
