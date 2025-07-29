@@ -1,13 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const api = axios.create({
-  baseURL: "http://localhost:3000",
-  headers: {
-    'Content-Type': 'application/json',
-  },
-})
-
 const PROPERTIES_ENDPOINT = "/api/v1/properties"
 
 interface Property {
@@ -22,7 +15,7 @@ export default function App() {
   const [properties, setProperties] = useState<Property[]>([])
   
   useEffect(() => {
-    api.get(PROPERTIES_ENDPOINT)
+    axios.get(PROPERTIES_ENDPOINT)
       .then(({data}) => setProperties(data as Property[]))
   }, [])
   
